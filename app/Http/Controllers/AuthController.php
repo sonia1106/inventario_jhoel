@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use illuminate\Support\Facades\Auth;
-use illuminate\Support\Facades\Hash;
-use app\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -23,7 +23,7 @@ class AuthController extends Controller
         $user = User::create([
             'name'=> $validateData['name'],
             'email'=> $validateData['email'],
-            'password'=> hash::make($validateData['password']),
+            'password'=> Hash::make($validateData['password']),
         ]);
         Auth::login($user);
         return redirect('/dashboard');

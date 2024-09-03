@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('insumos', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->string('nombre', 100);
-            $table->double('cantidad', null, 0);
-            $table->double('precio_uni', null, 0)->nullable();
-            $table->dateTime('fecha_ingreso')->nullable();
+            $table->id();
+            $table->string('nombre');
+            $table->integer('cantidad');
+            $table->decimal('precio_uni', 8, 2)->nullable();
+            $table->date('fecha_ingreso');
+            $table->foreignId('proveedor_id')->constrained('proveedores')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('telefono', 100);
             $table->string('correo_electronico', 100);
             $table->string('productos', 200);
+            $table->timestamps();
         });
     }
 

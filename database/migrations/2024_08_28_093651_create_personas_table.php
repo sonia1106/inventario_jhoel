@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('direccion', 150);
             $table->string('correo_electronico', 150);
             $table->dateTime('fecha_nacimiento');
+            $table->timestamps();
         });
     }
 
